@@ -9,6 +9,10 @@ import LayoutView from "../Layout/index.vue";
 const routes = [
   {
     path: "/",
+    component: LoginView,
+  },
+  {
+    path: "/layout",
     component: LayoutView,
     children: [
       {
