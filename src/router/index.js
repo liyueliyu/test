@@ -1,14 +1,33 @@
 import { createWebHistory, createRouter } from "vue-router";
-import routes from "./routes";
+import HomeView from "@/views/HomeView.vue";
+import HomeView1 from "@/views/HomeView1.vue";
+// import loginView from "@/views/loginView.vue";
+import LoginView from "@/views/LoginView.vue";
+// import LayoutView from "@/Layout/index.vue";
+import LayoutView from "../Layout/index.vue";
 
+const routes = [
+  {
+    path: "/",
+    component: LayoutView,
+    children: [
+      {
+        path: "/home",
+        component: HomeView,
+      },
+      {
+        path: "/home1",
+        component: HomeView1,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    component: LoginView,
+  },
+];
 const router = createRouter({
-  routes,
   history: createWebHistory(),
+  routes,
 });
-
-// 全局前置守卫
-router.beforeEach((to, from, next) => {
-  next();
-});
-
 export default router;
